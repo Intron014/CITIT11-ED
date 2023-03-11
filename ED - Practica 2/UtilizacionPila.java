@@ -26,10 +26,10 @@ public class UtilizacionPila {
      */
     public void mostrarInverso(Pila pila) {
         if(pila.vacia()){
-            //TODO:SOMETHING
         }else{
             String item=pila.desapilar();
             mostrarInverso(pila);
+            pila.apilar(item);
         }
      }
 }
