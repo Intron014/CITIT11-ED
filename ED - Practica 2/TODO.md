@@ -17,7 +17,7 @@
 - [ ] public Cola leerTexto(ListaEtiquetas lista, String texto)
 - [ ] public boolean comprobarHtml(Cola cola, ListaEtiquetas lista)
 ### UtilizacionPila:
-- [ ] public boolean comprobarTexto (ListaEtiquetas lista, String texto)
+- [x] public boolean comprobarTexto (ListaEtiquetas lista, String texto)
 - [x] public void mostrarInverso(Pila pila)
 ### UtilizacionStack:
 - [ ] public boolean comprobarLineaStack (ListaEtiquetas lista, String texto)

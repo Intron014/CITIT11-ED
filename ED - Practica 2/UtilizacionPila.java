@@ -8,7 +8,7 @@
 public class UtilizacionPila {
 
     /**
-     * TO-Do 1: Método que recibe un texto y una lista de etiquetas. Comprueba
+     * TODO 1: Método que recibe un texto y una lista de etiquetas. Comprueba
      * si todas las etiquetas del texto están balanceadas (cada etiqueta de
      * apertura se corresponde con una de cierre)
      *
@@ -17,7 +17,35 @@ public class UtilizacionPila {
      * @return verdadero si las etiquetas están balanceadas, falso en caso contrario
      */
     public boolean comprobarTexto (ListaEtiquetas lista, String texto) {
-        return false;
+        Pila pilosa = new Pila();
+        int i=0;
+        if(texto.isEmpty()){
+            return false;
+        }
+        while(i<texto.length()){
+            if(texto.charAt(i)=='<'){
+                String etiqueta="";
+                i++;
+                while(texto.charAt(i)!='>'){
+                    etiqueta+=texto.charAt(i);
+                    i++;
+                }
+                if(etiqueta.charAt(0)!='/'){
+                    pilosa.apilar(etiqueta);
+                }else{
+                    if(pilosa.vacia()){
+                        return false;
+                    }else{
+                        String etiqueta2=pilosa.desapilar();
+                        if(!etiqueta2.equals(etiqueta.substring(1))){
+                            return false;
+                        }
+                    }
+                }
+            }
+            i++;
+        }
+        return pilosa.vacia();
     }
 
     /**
