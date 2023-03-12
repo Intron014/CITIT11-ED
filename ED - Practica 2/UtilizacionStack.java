@@ -2,8 +2,8 @@ import java.util.Stack;
 
 /**
  * Clase UtilizacionStack, para desarrollar los ejercicios propuestos en el apartado 3
- * @author
- * @version
+ * @author Jorge Benjumea Burillo - CITIT11 - bt0354
+ * @version 1.0
  */
 public class UtilizacionStack {
 

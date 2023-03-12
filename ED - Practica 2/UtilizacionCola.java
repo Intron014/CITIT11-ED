@@ -2,7 +2,8 @@
  * Clase UtilizacionCola, para desarrollar los ejercicios propuestos en el
  * apartado 4
  *
- * @author
+ * @author Jorge Benjumea Burillo - CITIT11 - bt0354
+ * @version 1.0
  */
 public class UtilizacionCola {
 

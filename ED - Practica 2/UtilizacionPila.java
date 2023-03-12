@@ -2,8 +2,8 @@
  * Clase UtilizacionPila, para desarrollar los ejercicios propuestos en el
  * apartado 2
  *
- * @author
- * @version
+ * @author Jorge Benjumea Burillo - CITIT11 - bt0354
+ * @version 1.o
  */
 public class UtilizacionPila {
 
