@@ -48,25 +48,28 @@ public class UtilizacionCola {
      */
     public boolean comprobarHtml(Cola cola, ListaEtiquetas lista) {
         Pila comprobamos = new Pila();
+        boolean returning=true;
         int i=0;
-        while(i< cola.getNumElementos()){
+        int control= cola.getNumElementos();
+        while(i<control&& returning){
             String elemento = cola.desencolar();
             cola.encolar(elemento);
-            if(lista.esApertura(elemento)){
+            if(lista.esApertura(elemento)&& returning){
                 comprobamos.apilar(elemento);
             }
             else{
-                if(lista.esCierre(elemento)){
+                if(lista.esCierre(elemento)&& returning){
                     String elemento2= comprobamos.desapilar();
                     if(!lista.emparejados(elemento2, elemento)){
-                        return false;
-                    }
-                    else{
-                        i++;
+                        returning = false;
                     }
                 }
             }
+            i++;
         }
-        return true;
+        if(!comprobamos.vacia()){
+            comprobamos.mostrar();
+        }
+        return returning;
     }
 }

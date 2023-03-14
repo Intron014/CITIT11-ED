@@ -19,6 +19,7 @@ public class UtilizacionPila {
     public boolean comprobarTexto (ListaEtiquetas lista, String texto) {
         Pila pilosa = new Pila();
         int i=0;
+        boolean control=true;
         while(i<texto.length()){
             if(texto.charAt(i)=='<'){
                 String etiqueta="";
@@ -31,7 +32,7 @@ public class UtilizacionPila {
                     pilosa.apilar(etiqueta);
                 }else{
                     if(pilosa.vacia()){
-                        return false;
+                        control=false;
                     }else{
                         String etiqueta2=pilosa.desapilar();
                         if(!etiqueta2.equals(etiqueta.substring(1))){
@@ -39,14 +40,14 @@ public class UtilizacionPila {
                                 System.out.println("Sobran elementos");
                                 mostrarInverso(pilosa);
                             }
-                            return false;
+                            control=false;
                         }
                     }
                 }
             }
             i++;
         }
-        return true;
+        return control;
     }
 
     /**
