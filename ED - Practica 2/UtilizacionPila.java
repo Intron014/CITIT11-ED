@@ -57,6 +57,7 @@ public class UtilizacionPila {
         }else{
             String item=pila.desapilar();
             mostrarInverso(pila);
+            System.out.println(item);
             pila.apilar(item);
         }
      }
