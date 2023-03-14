@@ -44,7 +44,6 @@ public class UtilizacionPila {
                     }
                 }
             }
-
             i++;
         }
         return true;
