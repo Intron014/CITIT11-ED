@@ -18,9 +18,6 @@ public class UtilizacionStack {
     public boolean comprobarLineaStack (ListaEtiquetas lista, String texto) {
             Stack stackeado = new Stack<String>();
             int i=0;
-            if(texto.isEmpty()){
-                return false;
-            }
             while(i<texto.length()){
                 if(texto.charAt(i)=='<'){
                     String etiqueta="";
@@ -38,6 +35,10 @@ public class UtilizacionStack {
                             String etiqueta2;
                             etiqueta2= (String) stackeado.pop();
                             if(!etiqueta2.equals(etiqueta.substring(1))){
+                                if(!stackeado.empty()){
+                                    System.out.println("Sobran elementos");
+                                    mostrarInverso(stackeado);
+                                }
                                 return false;
                             }
                         }
@@ -45,7 +46,7 @@ public class UtilizacionStack {
                 }
                 i++;
             }
-            return stackeado.empty();
+            return true;
     }
     /**
      * Método que muestra el contenido de la pila
