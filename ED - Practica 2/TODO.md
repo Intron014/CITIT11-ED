@@ -14,8 +14,8 @@
 ### Pruebas:
 - [x] Nothing
 ### UtilizacionCola:
-- [ ] public Cola leerTexto(ListaEtiquetas lista, String texto)
-- [ ] public boolean comprobarHtml(Cola cola, ListaEtiquetas lista)
+- [x] public Cola leerTexto(ListaEtiquetas lista, String texto)
+- [x] public boolean comprobarHtml(Cola cola, ListaEtiquetas lista)
 ### UtilizacionPila:
 - [x] public boolean comprobarTexto (ListaEtiquetas lista, String texto)
 - [x] public void mostrarInverso(Pila pila)
