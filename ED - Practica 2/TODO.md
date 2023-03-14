@@ -20,6 +20,6 @@
 - [x] public boolean comprobarTexto (ListaEtiquetas lista, String texto)
 - [x] public void mostrarInverso(Pila pila)
 ### UtilizacionStack:
-- [ ] public boolean comprobarLineaStack (ListaEtiquetas lista, String texto)
-- [ ] public void mostrar (Stack <String> pila)
-- [ ] public void mostrarInverso (Stack <String> pila)
+- [x] public boolean comprobarLineaStack (ListaEtiquetas lista, String texto)
+- [x] public void mostrar (Stack <String> pila)
+- [x] public void mostrarInverso (Stack <String> pila)
