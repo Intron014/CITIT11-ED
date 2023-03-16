@@ -18,34 +18,22 @@ public class UtilizacionPila {
      */
     public boolean comprobarTexto (ListaEtiquetas lista, String texto) {
         Pila pilosa = new Pila();
+        String[] archive = texto.split(" ");
         int i=0;
         boolean control=true;
-        while(i<texto.length()){
-            if(texto.charAt(i)=='<'){
-                String etiqueta="";
-                i++;
-                while(texto.charAt(i)!='>'){
-                    etiqueta+=texto.charAt(i);
-                    i++;
-                }
-                if(etiqueta.charAt(0)!='/'){
-                    pilosa.apilar(etiqueta);
-                }else{
-                    if(pilosa.vacia()){
-                        control=false;
-                    }else{
-                        String etiqueta2=pilosa.desapilar();
-                        if(!etiqueta2.equals(etiqueta.substring(1))){
-                            if(!pilosa.vacia()){
-                                System.out.println("Sobran elementos");
-                                mostrarInverso(pilosa);
-                            }
-                            control=false;
-                        }
-                    }
-                }
+        for(;i< archive.length && control;i++){
+            if(lista.esApertura(archive[i])){
+                pilosa.apilar(archive[i]);
             }
-            i++;
+            else
+                if(lista.esCierre(archive[i])){
+                    String patata = pilosa.desapilar();
+                    if(!lista.emparejados(patata, archive[i])){
+                        control=false;
+                        System.out.println("Quedan elementos en la pila");
+                        mostrarInverso(pilosa);
+                    }
+            }
         }
         return control;
     }
