@@ -18,34 +18,21 @@ public class UtilizacionStack {
     public boolean comprobarLineaStack (ListaEtiquetas lista, String texto) {
             Stack stackeado = new Stack<String>();
             int i=0;
+            String[] archive = texto.split(" ");
             boolean returnin=true;
-            while(i<texto.length()){
-                if(texto.charAt(i)=='<'){
-                    String etiqueta="";
-                    i++;
-                    while(texto.charAt(i)!='>'){
-                        etiqueta+=texto.charAt(i);
-                        i++;
-                    }
-                    if(etiqueta.charAt(0)!='/'){
-                        stackeado.push(etiqueta);
-                    }else{
-                        if(stackeado.empty()){
+            for(;i< archive.length && returnin;i++){
+                if(lista.esApertura(archive[i])){
+                    stackeado.push(archive[i]);
+                }
+                else
+                    if(lista.esCierre(archive[i])){
+                        String potatoe = (String) stackeado.pop();
+                        if(!lista.emparejados(potatoe, archive[i])){
                             returnin=false;
-                        }else{
-                            String etiqueta2;
-                            etiqueta2= (String) stackeado.pop();
-                            if(!etiqueta2.equals(etiqueta.substring(1))){
-                                if(!stackeado.empty()){
-                                    System.out.println("Sobran elementos");
-                                    mostrarInverso(stackeado);
-                                }
-                                returnin=false;
-                            }
+                            System.out.println("Quedan elementos en la pila");
+                            mostrar(stackeado);
                         }
                     }
-                }
-                i++;
             }
             return returnin;
     }
