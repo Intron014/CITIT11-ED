@@ -62,7 +62,7 @@ public class UtilizacionStack {
         }
         else{
             String item=pila.pop();
-            mostrar(pila);
+            mostrarInverso(pila);
             System.out.println(item);
             pila.push(item);
         }
