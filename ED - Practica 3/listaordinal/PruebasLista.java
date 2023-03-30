@@ -9,7 +9,14 @@ public class PruebasLista {
 
         ListaOrdinal listosa = new ListaOrdinal();
 
+        listosa.insertar(mesa_escritorio);
+        listosa.insertar(silla);
+        listosa.insertar(mesa_cocina);
+        listosa.insertar(sillon);
 
+        listosa.mostrar();
+        listosa.borrar(silla);
+        listosa.mostrar();
 
     }
 }

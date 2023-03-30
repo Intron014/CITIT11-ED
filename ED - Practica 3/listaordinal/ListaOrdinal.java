@@ -109,6 +109,7 @@ public class ListaOrdinal {
             System.out.println("Lista vacía");
         } else {
             Nodo actual = inicio;
+            System.out.println("---------- PRODUCTOS EN LA LISTA -----------");
             while (actual != null) {
                 actual.getDato().mostrar();
                 actual = actual.getSiguiente();

@@ -30,7 +30,23 @@ public class Factura {
     }
 
     public void añadirProducto(Producto producto) {
-        // Completar
+        if(listaProductos.vacia()){
+            listaProductos.insertar(producto);
+        }
+        else {
+            if(listaProductos.contiene(producto)){
+                Iterador italia = listaProductos.getIterador();
+                while(italia.hasNext()){
+                    Producto p = italia.next();
+                    if(p.equals(producto)){
+                        p.setUnidades(p.getUnidades() + producto.getUnidades());
+                    }
+                }
+            }
+            else{
+                listaProductos.insertar(producto);
+            }
+        }
     }
 
     public void mostrar() {
