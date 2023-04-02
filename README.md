@@ -15,10 +15,10 @@ To get started with the code in this repository, you will need to have a code ed
 Once you have a code editor installed, you can clone this repository to your computer using the following command:
 
 ```bash
-git clone https://github.com/Intron014/CITIT11-ED.git
+git clone https://gitea.com/Intron014/CITIT11-ED.git
 ```
 
-Alternatively, you can download the repository as a ZIP file by clicking the "Download ZIP" button on the GitHub page for this repository.
+Alternatively, you can download the repository as a ZIP file by clicking the "Download ZIP" button on the Gitea page for this repository.
 
 ## Contributing
 
