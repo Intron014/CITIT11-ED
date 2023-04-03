@@ -36,5 +36,20 @@ public class PruebasLista {
         System.out.println();
         factura.mayoresPrecios(100);
 
+        System.out.println("other");
+        FacturaBib factura2 = new FacturaBib("88888888A", "08/08/2008");
+        Producto armario_5 = new Producto("Armario", 385, 5);
+        Producto cama_3 = new Producto("Cama", 255, 3);
+        Producto cama_2 = new Producto("Cama", 255, 2);
+        Producto armario_1 = new Producto("Armario", 385, 1);
+
+        factura2.añadirProducto(armario_5);
+        factura2.añadirProducto(cama_3);
+        factura2.añadirProducto(cama_2);
+        factura2.eliminarProducto(armario_1);
+        factura2.mostrar();
+        factura2.mayoresPrecios(250);
+
+
     }
 }
