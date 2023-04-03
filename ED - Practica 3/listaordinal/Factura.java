@@ -91,14 +91,18 @@ public class Factura {
     }
 
     public ListaOrdinal mayoresPrecios(float precio) {
+        int count=0;
         ListaOrdinal lista = new ListaOrdinal();
         Iterador iterante = listaProductos.getIterador();
         while(iterante.hasNext()){
             Producto p = iterante.next();
             if(p.getPrecio()>precio){
+                count++;
                 lista.insertar(p);
             }
         }
+        System.out.println("Se han obtenido " + count + " productos con precio mayor que " + precio + " €");
+        lista.mostrar();
         return lista;
     }
 }

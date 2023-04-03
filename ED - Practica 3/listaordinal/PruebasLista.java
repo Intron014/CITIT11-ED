@@ -33,5 +33,8 @@ public class PruebasLista {
         factura.eliminarProducto(sillon_3);
         factura.mostrar();
 
+        System.out.println();
+        factura.mayoresPrecios(100);
+
     }
 }
