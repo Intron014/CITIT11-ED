@@ -96,30 +96,27 @@ public class FacturaBib {
         return items;
     }
 
-    public LinkedList mayoresPrecios(float precio) {
-        int count=0;
-        LinkedList lista = new LinkedList();
-        Producto p;
-        Iterator<Producto> iterante = listaProductos.listIterator();
-        while(iterante.hasNext()){
-            p = iterante.next();
-            if(p.getPrecio()>precio){
+    public LinkedList<Producto> mayoresPrecios(float precio) {
+        int count = 0;
+        LinkedList<Producto> lista = new LinkedList<>();
+        Iterator<Producto> iterante = listaProductos.iterator();
+        while (iterante.hasNext()) {
+            Producto p = iterante.next();
+            if (p.getPrecio() > precio) {
                 count++;
                 lista.add(p);
             }
         }
         System.out.println("Se han obtenido " + count + " productos con precio mayor que " + precio + " €");
-        Iterator<Producto> interando = listaProductos.listIterator();
-        if (listaProductos.isEmpty()) {
-            System.out.println("List is empty");
+        if (lista.isEmpty()) {
+            System.out.println("La lista está vacía.");
         } else {
-            while (interando.hasNext())
-            {
-                interando.next().mostrar();
+            for (Producto p : lista) {
+                p.mostrar();
             }
-            System.out.println();
         }
         System.out.println("IMPORTE TOTAL: " + importeTotal());
         return lista;
     }
+
 }
