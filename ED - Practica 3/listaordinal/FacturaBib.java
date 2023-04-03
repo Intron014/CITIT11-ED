@@ -62,19 +62,6 @@ public class FacturaBib {
         }
         System.out.println("IMPORTE TOTAL: " + importeTotal());
     }
-    public void mostrar1() {
-        Iterator<Producto> interando = listaProductos.listIterator();
-        if (listaProductos.isEmpty()) {
-            System.out.println("List is empty");
-        } else {
-            while (interando.hasNext())
-            {
-                interando.next().mostrar();
-            }
-            System.out.println();
-        }
-        System.out.println("IMPORTE TOTAL: " + importeTotal());
-    }
 
     public float importeTotal() {
         float total = 0;
@@ -122,7 +109,17 @@ public class FacturaBib {
             }
         }
         System.out.println("Se han obtenido " + count + " productos con precio mayor que " + precio + " €");
-        this.mostrar1();
+        Iterator<Producto> interando = listaProductos.listIterator();
+        if (listaProductos.isEmpty()) {
+            System.out.println("List is empty");
+        } else {
+            while (interando.hasNext())
+            {
+                interando.next().mostrar();
+            }
+            System.out.println();
+        }
+        System.out.println("IMPORTE TOTAL: " + importeTotal());
         return lista;
     }
 }
