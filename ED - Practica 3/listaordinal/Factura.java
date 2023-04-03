@@ -30,22 +30,17 @@ public class Factura {
     }
 
     public void añadirProducto(Producto producto) {
-        if(listaProductos.vacia()){
-            listaProductos.insertar(producto);
-        }
-        else {
-            if(listaProductos.contiene(producto)){
-                Iterador italia = listaProductos.getIterador();
-                while(italia.hasNext()){
-                    Producto p = italia.next();
-                    if(p.equals(producto)){
-                        p.setUnidades(p.getUnidades() + producto.getUnidades());
-                    }
+        if(listaProductos.contiene(producto)){
+            Iterador italia = listaProductos.getIterador();
+            while(italia.hasNext()){
+                Producto p = italia.next();
+                if(p.equals(producto)){
+                    p.setUnidades(p.getUnidades() + producto.getUnidades());
                 }
             }
-            else{
-                listaProductos.insertar(producto);
-            }
+        }
+        else{
+            listaProductos.insertar(producto);
         }
     }
 
@@ -67,22 +62,18 @@ public class Factura {
 
     public int eliminarProducto(Producto producto) {
         int items=0;
-        if(listaProductos.vacia()){
-        }
-        else {
-            if(listaProductos.contiene(producto)){
-                Iterador italia = listaProductos.getIterador();
-                while(italia.hasNext()){
-                    Producto p = italia.next();
-                    if(p.equals(producto)){
-                        if(p.getUnidades()>producto.getUnidades()){
-                            items=producto.getUnidades();
-                            p.setUnidades(p.getUnidades() - producto.getUnidades());
-                        }
-                        if(p.getUnidades()<producto.getUnidades()){
-                            items=producto.getUnidades();
-                            listaProductos.borrar(producto);
-                        }
+        if(listaProductos.contiene(producto)){
+            Iterador italia = listaProductos.getIterador();
+            while(italia.hasNext()){
+                Producto p = italia.next();
+                if(p.equals(producto)){
+                    if(p.getUnidades()>producto.getUnidades()){
+                        items=producto.getUnidades();
+                        p.setUnidades(p.getUnidades() - producto.getUnidades());
+                    }
+                    if(p.getUnidades()<producto.getUnidades()){
+                        items=producto.getUnidades();
+                        listaProductos.borrar(producto);
                     }
                 }
             }
