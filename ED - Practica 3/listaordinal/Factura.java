@@ -62,16 +62,17 @@ public class Factura {
 
     public int eliminarProducto(Producto producto) {
         int items=0;
+        Producto p;
         if(listaProductos.contiene(producto)){
             Iterador italia = listaProductos.getIterador();
             while(italia.hasNext()){
-                Producto p = italia.next();
+                p = italia.next();
                 if(p.equals(producto)){
-                    if(p.getUnidades()>producto.getUnidades()){
+                    if(p.getUnidades() >= producto.getUnidades()){
                         items=producto.getUnidades();
                         p.setUnidades(p.getUnidades() - producto.getUnidades());
                     }
-                    if(p.getUnidades()<producto.getUnidades()){
+                    if(p.getUnidades() < producto.getUnidades()){
                         items=producto.getUnidades();
                         listaProductos.borrar(producto);
                     }
