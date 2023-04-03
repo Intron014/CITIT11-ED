@@ -99,24 +99,65 @@ public class Conjunto {
 
 
     public int[] toArray() {
-        // Completar
-        return null;   // Línea puesta para evitar error. Eliminarla al codificar el método
+        int[] array = new int[numElementos];
+        Nodo actual = inicio;
+        int i = 0;
+        while (actual != null) {
+            array[i] = actual.getDato();
+            actual = actual.getSiguiente();
+            i++;
+        }
+        System.out.print("El array contiene: ");
+        for(i=0; i<array.length-1; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.print(array[i] + "\n");
+        return array;
     }
 
 
     public int mayor() {
-        // Completar
-        return 0;   // Línea puesta para evitar error. Eliminarla al codificar el método
+        Nodo actual = inicio;
+        int mayor=0;
+        while(actual!=null){
+            if(actual.getDato()>mayor){
+                mayor=actual.getDato();
+            }
+            actual=actual.getSiguiente();
+        }
+        return mayor;
     }
 
     public Conjunto subconjunto(int inferior, int superior) {
-        // Completar
-        return null;   // Línea puesta para evitar error. Eliminarla al codificar el método
+        Nodo actual = inicio;
+        Conjunto conjuntado = new Conjunto();
+        while(actual!=null){
+            if(actual.getDato()>=inferior && actual.getDato()<=superior){
+                conjuntado.insertar(actual.getDato());
+            }
+            actual=actual.getSiguiente();
+        }
+        conjuntado.mostrar();
+        return conjuntado;
     }
 
     public boolean equals(Conjunto conjunto) {
-        // Completar
-        return true;   // Línea puesta para evitar error. Eliminarla al codificar el método
+        Nodo actual = this.inicio;
+        Nodo actual2 = conjunto.inicio;
+        Boolean status=true;
+        while(actual!=null&&actual2!=null){
+            if(conjunto.numElementos!=this.numElementos){
+                status=false;
+            }
+            if(actual.getDato()!=actual2.getDato()){
+                status=false;
+            }
+            else {
+                actual=actual.getSiguiente();
+                actual2=actual2.getSiguiente();
+            }
+        }
+        return status;
     }
 
 
