@@ -32,8 +32,9 @@ public class Factura {
     public void añadirProducto(Producto producto) {
         if(listaProductos.contiene(producto)){
             Iterador italia = listaProductos.getIterador();
+            Producto p;
             while(italia.hasNext()){
-                Producto p = italia.next();
+                p = italia.next();
                 if(p.equals(producto)){
                     p.setUnidades(p.getUnidades() + producto.getUnidades());
                 }
