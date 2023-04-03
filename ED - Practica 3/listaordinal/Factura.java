@@ -50,21 +50,55 @@ public class Factura {
     }
 
     public void mostrar() {
-        // Completar
+        System.out.println("FACTURA de " + dni + ". Fecha: " + fecha);
+        listaProductos.mostrar();
+        System.out.println("IMPORTE TOTAL: " + importeTotal());
     }
 
     public float importeTotal() {
-        // Completar
-        return 0.0f; // Línea puesta para evitar error. Eliminarla al codificar el método
+        float total = 0;
+        Iterador iterante = listaProductos.getIterador();
+        while(iterante.hasNext()){
+            Producto p = iterante.next();
+            total += p.getPrecio() * p.getUnidades();
+        }
+        return total;
     }
 
     public int eliminarProducto(Producto producto) {
-        // Completar
-        return 0; // Línea puesta para evitar error. Eliminarla al codificar el método
+        int items=0;
+        if(listaProductos.vacia()){
+        }
+        else {
+            if(listaProductos.contiene(producto)){
+                Iterador italia = listaProductos.getIterador();
+                while(italia.hasNext()){
+                    Producto p = italia.next();
+                    if(p.equals(producto)){
+                        if(p.getUnidades()>producto.getUnidades()){
+                            items=producto.getUnidades();
+                            p.setUnidades(p.getUnidades() - producto.getUnidades());
+                        }
+                        if(p.getUnidades()<producto.getUnidades()){
+                            items=producto.getUnidades();
+                            listaProductos.borrar(producto);
+                        }
+                    }
+                }
+            }
+        }
+        return items;
     }
 
     public ListaOrdinal mayoresPrecios(float precio) {
-        // Completar
-        return null; // Línea puesta para evitar error. Eliminarla al codificar el método
+        ListaOrdinal lista = new ListaOrdinal();
+        Iterador iterante = listaProductos.getIterador();
+        while(iterante.hasNext()){
+            Producto p = iterante.next();
+            if(p.getPrecio()>precio){
+                lista.insertar(p);
+            }
+        }
+        return lista;
     }
 }
