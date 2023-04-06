@@ -36,7 +36,7 @@ public class PruebasLista {
         System.out.println();
         factura.mayoresPrecios(100);
 
-        System.out.println("other");
+
         FacturaBib factura2 = new FacturaBib("88888888A", "08/08/2008");
         Producto armario_5 = new Producto("Armario", 385, 5);
         Producto cama_3 = new Producto("Cama", 255, 3);

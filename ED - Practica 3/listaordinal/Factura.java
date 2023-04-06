@@ -73,7 +73,7 @@ public class Factura {
                         items=producto.getUnidades();
                         p.setUnidades(p.getUnidades() - producto.getUnidades());
                     }
-                    if(p.getUnidades() < producto.getUnidades()){
+                    else{
                         items=producto.getUnidades();
                         listaProductos.borrar(producto);
                     }

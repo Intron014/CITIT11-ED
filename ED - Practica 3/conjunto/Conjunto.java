@@ -118,7 +118,7 @@ public class Conjunto {
 
     public int mayor() {
         Nodo actual = inicio;
-        int mayor=0;
+        int mayor=-1;
         while(actual!=null){
             if(actual.getDato()>mayor){
                 mayor=actual.getDato();
@@ -137,7 +137,6 @@ public class Conjunto {
             }
             actual=actual.getSiguiente();
         }
-        conjuntado.mostrar();
         return conjuntado;
     }
 
@@ -145,17 +144,15 @@ public class Conjunto {
         Nodo actual = this.inicio;
         Nodo actual2 = conjunto.inicio;
         Boolean status=true;
+        if(conjunto.numElementos!=this.numElementos){
+            status=false;
+        }
         while(actual!=null&&actual2!=null){
-            if(conjunto.numElementos!=this.numElementos){
-                status=false;
-            }
             if(actual.getDato()!=actual2.getDato()){
                 status=false;
             }
-            else {
-                actual=actual.getSiguiente();
-                actual2=actual2.getSiguiente();
-            }
+            actual=actual.getSiguiente();
+            actual2=actual2.getSiguiente();
         }
         return status;
     }

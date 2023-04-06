@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class FacturaBib {
     private String dni;
     private String fecha;
-    private LinkedList listaProductos;
+    private LinkedList<Producto> listaProductos;
     private boolean cobrada;
 
     public FacturaBib(String dni, String fecha) {
@@ -107,7 +107,7 @@ public class FacturaBib {
                 lista.add(p);
             }
         }
-        System.out.println("Se han obtenido " + count + " productos con precio mayor que " + precio + " €");
+        System.out.println("Se han obtenido " + count + " productos con precio mayor que " + precio + " € la unidad.");
         if (lista.isEmpty()) {
             System.out.println("La lista está vacía.");
         } else {
@@ -115,7 +115,6 @@ public class FacturaBib {
                 p.mostrar();
             }
         }
-        System.out.println("IMPORTE TOTAL: " + importeTotal());
         return lista;
     }
 

@@ -12,8 +12,9 @@ public class PruebasConjunto {
         conjuntoso.mostrar();
         conjuntoso.toArray();
         System.out.println("El mayor es: " + conjuntoso.mayor());
-        conjuntoso.subconjunto(3, 6);
-        System.out.println("");
+        System.out.print("El subconjunto entre 3 y 6 es: ");
+        conjuntoso.subconjunto(3, 6).mostrar();
+        System.out.println();
 
         Conjunto conjuntazo = new Conjunto();
         conjuntazo.insertar(2);
