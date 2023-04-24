@@ -46,7 +46,17 @@ public class ArbolBinarioBusqueda {
 	// ------------------------------------------------------------------------
 	// TODO 3.2: Devuelve el numero de nodos del arbol de forma RECURSIVA
 	public int getNumElementos() {
-		return 0;
+		return getNumElementosRec(raiz);
+	}
+	private int getNumElementosRec(NodoArbol nodo){
+		if(nodo==null){
+			return 0;
+		}
+		else{
+			int numIzquierdo = getNumElementosRec(nodo.getIzquierdo());
+			int numDerecha = getNumElementosRec(nodo.getDerecho());
+			return 1 + numIzquierdo + numDerecha;
+		}
 	}
 
 
