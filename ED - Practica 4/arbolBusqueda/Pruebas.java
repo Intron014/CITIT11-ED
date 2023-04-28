@@ -39,27 +39,27 @@ public class Pruebas {
 		this.mostrarAlumno(arbol.getMenorElemento());
 		System.out.println("----------------------------------------");
 
-		System.out.println();
-		this.mostrarMenores(arbol, 5623);
-		this.mostrarMenores(arbol, 8511);
-		this.mostrarMenores(arbol, 2346);
-		this.mostrarMenores(arbol, 1254);
-		this.mostrarMenores(arbol, 8766);
-		this.mostrarMenores(arbol, 8136);
-		this.mostrarMenores(arbol, 8218);
-		this.mostrarMenores(arbol, 1253);
+		System.out.println();					//R - M\\ (real - mine)
+		this.mostrarMenores(arbol, 5623);	//3 - 3\\
+		this.mostrarMenores(arbol, 8511);	//6 - 6\\
+		this.mostrarMenores(arbol, 2346);	//2 - 2\\
+		this.mostrarMenores(arbol, 1254);	//1 - 1\\
+		this.mostrarMenores(arbol, 8766);	//7 - 7\\
+		this.mostrarMenores(arbol, 8136);	//4 - 3\\
+		this.mostrarMenores(arbol, 8218);	//5 - 3\\
+		this.mostrarMenores(arbol, 1253);	//0 - 0\\
 		System.out.println("----------------------------------------");
 
-		System.out.println();
-		this.mostrarIntermedios(arbol, 1000, 1253);
-		this.mostrarIntermedios(arbol, 1000, 2000);
-		this.mostrarIntermedios(arbol, 1000, 4000);
-		this.mostrarIntermedios(arbol, 1000, 8135);
-		this.mostrarIntermedios(arbol, 1000, 9000);
-		this.mostrarIntermedios(arbol, 2000, 2200);
-		this.mostrarIntermedios(arbol, 2344, 8500);
-		this.mostrarIntermedios(arbol, 3000, 9000);
-		this.mostrarIntermedios(arbol, 9000, 10000);
+		System.out.println();												//R - M\\ (real - mine)
+		this.mostrarIntermedios(arbol, 1000, 1253);	//0 - 0\\
+		this.mostrarIntermedios(arbol, 1000, 2000);	//1 - 1\\
+		this.mostrarIntermedios(arbol, 1000, 4000);	//2 - 2\\
+		this.mostrarIntermedios(arbol, 1000, 8135);	//3 - 3\\
+		this.mostrarIntermedios(arbol, 1000, 9000);	//7	- 3\\
+		this.mostrarIntermedios(arbol, 2000, 2200);	//0 - 0\\
+		this.mostrarIntermedios(arbol, 2344, 8500);	//4 - 2\\
+		this.mostrarIntermedios(arbol, 3000, 9000);	//5 - 1\\
+		this.mostrarIntermedios(arbol, 9000, 10000); 	//0 - 0\\
 		System.out.println("----------------------------------------");
 	}
 
