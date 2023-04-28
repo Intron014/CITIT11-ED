@@ -1,5 +1,7 @@
 package arbolBusqueda;
 
+import javax.swing.*;
+
 public class ArbolBinarioBusqueda {
 
 	private NodoArbol raiz;
@@ -66,23 +68,36 @@ public class ArbolBinarioBusqueda {
 	public int getNumMenores(int clave) {
 		return getNumMenoresRec(raiz, clave);
 	}
-	private int getNumMenoresRec(NodoArbol nodo, int clave){
-		int num = 0;
-		if(nodo!=null){
-			if(nodo.getDato().equals(clave)){
-				num++;
-			}
-			num+=getNumMenoresRec(nodo.getIzquierdo(), clave);
-			num+=getNumMenoresRec(nodo.getDerecho(), clave);
+
+	private int getNumMenoresRec(NodoArbol nodo, int clave) {
+		if (nodo == null) {
+			return 0;
 		}
-		return num;
+		int count = 0;
+		if (nodo.getDato().getMatricula() < clave) {
+			count++;
+			count += getNumMenoresRec(nodo.getIzquierdo(), clave);
+			if (nodo.getDerecho() != null && nodo.getDerecho().getDato().getMatricula() < clave) {
+				count += getNumMenoresRec(nodo.getDerecho(), clave);
+			}
+		} else {
+			count += getNumMenoresRec(nodo.getIzquierdo(), clave);
+		}
+		return count;
 	}
+
 
 
 	// ------------------------------------------------------------------------
 	// TODO 3.4: Devuelve el elemento con la menor clave de forma RECURSIVA
 	public Alumno getMenorElemento() {
-		return null;
+		return getMenorElementoRec(raiz);
+	}
+	private Alumno getMenorElementoRec(NodoArbol nodo){
+		if(nodo.getIzquierdo()!=null){
+			return getMenorElementoRec(nodo.getIzquierdo());
+		}
+		return nodo.getDato();
 	}
 
 
@@ -90,7 +105,24 @@ public class ArbolBinarioBusqueda {
 	// TODO 3.5: Devuelve el número de nodos del árbol con clave mayor que
 	// claveMinimo y menor que claveMaximo
 	public int getNumIntermedios(int claveMinimo, int claveMaximo) {
-		return 0;
+		return getNumIntermediosRec(raiz, claveMinimo, claveMaximo);
+	}
+	private int getNumIntermediosRec(NodoArbol nodo, int claveMinimo, int claveMaximo){
+		int count = 0;
+		if(nodo != null) {
+			if (nodo.getDato().getMatricula() < claveMinimo) {
+				return getNumIntermediosRec(nodo.getDerecho(), claveMinimo, claveMaximo);
+			} else if (nodo.getDato().getMatricula() > claveMaximo) {
+				return getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
+			} else if (nodo.getDato().getMatricula() > claveMinimo && nodo.getDato().getMatricula() < claveMaximo) {
+				count++;
+				return count += getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
+			}
+		}
+		else{
+			return 0;
+		}
+		return count;
 	}
 
 
