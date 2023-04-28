@@ -64,7 +64,18 @@ public class ArbolBinarioBusqueda {
 	// TODO 3.3: Devuelve el numero de nodos del arbol con clave
 	// menor a una clave dada de forma RECURSIVA
 	public int getNumMenores(int clave) {
-		return 0;
+		return getNumMenoresRec(raiz, clave);
+	}
+	private int getNumMenoresRec(NodoArbol nodo, int clave){
+		int num = 0;
+		if(nodo!=null){
+			if(nodo.getDato().equals(clave)){
+				num++;
+			}
+			num+=getNumMenoresRec(nodo.getIzquierdo(), clave);
+			num+=getNumMenoresRec(nodo.getDerecho(), clave);
+		}
+		return num;
 	}
 
 
