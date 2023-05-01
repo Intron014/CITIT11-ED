@@ -34,22 +34,22 @@ public class ArbolNario {
     // TODO 2.3: Mostrar el arbol recorriendo en profundidad de forma ITERATIVA
     public void mostrarProfundidadIterativo() {
         System.out.print("Profundidad Iterativo: ");
-        ListaNodosArbolNario storage = new ListaNodosArbolNario();
-        storage.insertar(raiz);
-        IteradorAdelanteListaNodosArbolNario fwd = raiz.getHijos().getIteradorAdelante();
-        while (fwd.hasNext()){
-            NodoArbolNario nodoso = fwd.next();
-            storage.insertar(nodoso);
+        PilaNodosArbolNario storage = new PilaNodosArbolNario();
+        NodoArbolNario nodoso;
+        IteradorAtrasListaNodosArbolNario fwd = this.raiz.getHijos().getIteradorAtras();
+        while (fwd.hasPrevious()){
+            nodoso = fwd.previous();
             if(nodoso.getHijos().getNumElementos()>0){
-                IteradorAdelanteListaNodosArbolNario patata = nodoso.getHijos().getIteradorAdelante();
-                while(patata.hasNext()){
-                    storage.insertar(patata.next());
+                IteradorAtrasListaNodosArbolNario patata = nodoso.getHijos().getIteradorAtras();
+                while(patata.hasPrevious()){
+                    storage.apilar(patata.previous());
                 }
             }
+            storage.apilar(nodoso);
         }
-        IteradorAdelanteListaNodosArbolNario stor = storage.getIteradorAdelante();
-        while(stor.hasNext()){
-            System.out.print(stor.next().getDato() + " ");
+        storage.apilar(raiz);
+        while(!storage.vacia()){
+            System.out.print(storage.desapilar().getDato() + " ");
         }
         System.out.println();
     }
