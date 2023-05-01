@@ -107,13 +107,17 @@ public class ArbolBinarioBusqueda {
 	private int getNumIntermediosRec(NodoArbol nodo, int claveMinimo, int claveMaximo){
 		int count = 0;
 		if(nodo != null) {
-			if (nodo.getDato().getMatricula() < claveMinimo) {
-				return getNumIntermediosRec(nodo.getDerecho(), claveMinimo, claveMaximo);
+			if (nodo.getDato().getMatricula() > claveMinimo && nodo.getDato().getMatricula() < claveMaximo) {
+				count+=1;
+				return count += getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
 			} else if (nodo.getDato().getMatricula() > claveMaximo) {
 				return getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
-			} else if (nodo.getDato().getMatricula() > claveMinimo && nodo.getDato().getMatricula() < claveMaximo) {
-				count=1;
-				return count += getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
+			} else if (nodo.getDato().getMatricula() < claveMinimo) {
+				count+= getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
+				if(nodo.getDerecho() != null && nodo.getDerecho().getDato().getMatricula() < claveMaximo){
+					count+=getNumIntermediosRec(nodo.getDerecho(), claveMinimo, claveMaximo);
+				}
+				return count;
 			}
 		} else{
 			return 0;
