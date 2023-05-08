@@ -74,10 +74,7 @@ public class ArbolBinarioBusqueda {
 		}
 		int count = 0;
 		if (nodo.getDato().getMatricula() < clave) {
-			count=1+getNumMenoresRec(nodo.getIzquierdo(), clave);
-			if (nodo.getDerecho() != null && nodo.getDerecho().getDato().getMatricula() < clave) {
-				count += getNumMenoresRec(nodo.getDerecho(), clave);
-			}
+			count=1+getNumMenoresRec(nodo.getIzquierdo(), clave) + getNumMenoresRec(nodo.getDerecho(), clave);
 		} else {
 			count += getNumMenoresRec(nodo.getIzquierdo(), clave);
 		}
@@ -108,19 +105,14 @@ public class ArbolBinarioBusqueda {
 		int count = 0;
 		if(nodo != null) {
 			if (nodo.getDato().getMatricula() > claveMinimo && nodo.getDato().getMatricula() < claveMaximo) {
-				count+=1;
-				return count += getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
+				count = 1 + getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo) + getNumIntermediosRec(nodo.getDerecho(), claveMinimo, claveMaximo);
 			} else if (nodo.getDato().getMatricula() > claveMaximo) {
-				return getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
+				count = getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
 			} else if (nodo.getDato().getMatricula() < claveMinimo) {
-				count+= getNumIntermediosRec(nodo.getIzquierdo(), claveMinimo, claveMaximo);
-				if(nodo.getDerecho() != null && nodo.getDerecho().getDato().getMatricula() < claveMaximo){
-					count+=getNumIntermediosRec(nodo.getDerecho(), claveMinimo, claveMaximo);
-				}
-				return count;
+				count+= getNumIntermediosRec(nodo.getDerecho(), claveMinimo, claveMaximo);
 			}
 		} else{
-			return 0;
+			return count;
 		}
 		return count;
 	}

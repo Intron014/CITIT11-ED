@@ -39,15 +39,15 @@ public class Pruebas {
 		this.mostrarAlumno(arbol.getMenorElemento());
 		System.out.println("----------------------------------------");
 
-		System.out.println();					//R - M\\ (real - mine)
-		this.mostrarMenores(arbol, 5623);	//3 - 3\\
-		this.mostrarMenores(arbol, 8511);	//6 - 6\\
-		this.mostrarMenores(arbol, 2346);	//2 - 2\\
-		this.mostrarMenores(arbol, 1254);	//1 - 1\\
-		this.mostrarMenores(arbol, 8766);	//7 - 7\\
-		this.mostrarMenores(arbol, 8136);	//4 - 3\\
-		this.mostrarMenores(arbol, 8218);	//5 - 3\\
-		this.mostrarMenores(arbol, 1253);	//0 - 0\\
+		System.out.println();
+		this.mostrarMenores(arbol, 5623);
+		this.mostrarMenores(arbol, 8511);
+		this.mostrarMenores(arbol, 2346);
+		this.mostrarMenores(arbol, 1254);
+		this.mostrarMenores(arbol, 8766);
+		this.mostrarMenores(arbol, 8136);
+		this.mostrarMenores(arbol, 8218);
+		this.mostrarMenores(arbol, 1253);
 		System.out.println("----------------------------------------");
 
 		System.out.println();												//R - M\\ (real - mine)
