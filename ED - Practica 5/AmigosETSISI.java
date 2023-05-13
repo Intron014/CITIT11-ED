@@ -110,7 +110,35 @@ public class AmigosETSISI {
     // TODO Apartado 2.2 Primer método
     public int mostrarGrupos() {
         int resul = 0;
-        // introducir el código necesario para realizar el primer apartado
+        boolean[] visitados = new boolean[this.miREd.getNumVertices()];
+        boolean[] amigos = new boolean[this.miREd.getNumVertices()];
+        inicia_Visitados(visitados);
+        inicia_Visitados(amigos);
+
+        int i = 0;
+        while (i < miREd.getNumVertices()) {
+            if (!visitados[i]) {
+                visitados[i] = true;
+                amigos[i] = true;
+
+                for (int j = 0; j < miREd.getNumVertices(); j++) {
+                    if (miREd.existeArista(i, j)) {
+                        amigos[j] = true;
+                        visitados[j] = true;
+                    }
+                }
+
+                System.out.println("Grupo " + resul + ": ");
+                for (int k = 0; k < miREd.getNumVertices(); k++) {
+                    if (amigos[k]) {
+                        System.out.println(contactos[k].getNombre());
+                    }
+                }
+
+                resul++;
+            }
+            i++;
+        }
         return resul;
     }
 
