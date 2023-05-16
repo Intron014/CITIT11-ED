@@ -3,7 +3,8 @@ public GrafoMA complementario(GrafoMA g1){
 	GrafoMA result = new GrafoMA(num, g1.getDirigido());
 	for(int i=0;i<num;i++){
 		for(int j=0;j<num;j++){
-			if((!g1.)&&()){
+			if((!g1.existeArista(i,j))&&(i!=j)){
+				result.insertarArista(i,j);
 			}
 		}
 	}
