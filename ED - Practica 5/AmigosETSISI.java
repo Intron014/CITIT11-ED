@@ -134,7 +134,19 @@ public class AmigosETSISI {
 
     // TODO Apartado 2.2 Segundo método
     public void mostrarAmigosIndirectos(String nombre) {
-        // introducir el código necesario para realizar el segundo apartado
+        if (this.devuelvePosNombre(nombre) != -1) {
+            boolean[] visitados = new boolean[this.getNumPersonas()];
+            visitados = inicia_Visitados(visitados);
+            miREd.recorridoEnProfundidadComponenteConexa(devuelvePosNombre(nombre), visitados);
+            System.out.println("Indirect friends of " + nombre + ":");
+            for (int i = 0; i < contactos.length; i++) {
+                if (!existeRelacion(devuelvePosNombre(nombre), i) && visitados[i] && !contactos[i].getNombre().equals(nombre)) {
+                    System.out.println(devuelvePosNombre(contactos[i].getNombre()) + " --> " + contactos[i].getNombre());
+                }
+            }
+        } else {
+            System.out.println("No tiene pinta de que esta persona exista");
+        }
     }
 
     // TODO Apartado 2.2 Tercer método
