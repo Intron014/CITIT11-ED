@@ -151,8 +151,39 @@ public class AmigosETSISI {
 
     // TODO Apartado 2.2 Tercer método
     public boolean noSonAmigos(Persona p, Persona p1) {
-        // introducir el código necesario para realizar el tercer apartado
-        return true;
+        boolean resul = false;
+        boolean pfind = false;
+        if (devuelvePosNombre(p.getNombre()) != -1) {
+            pfind = true;
+        }
+        boolean p1find = false;
+        if (devuelvePosNombre(p1.getNombre()) != -1) {
+            p1find = true;
+        }
+        if (pfind && p1find) {
+            boolean[] visitados = new boolean[getNumPersonas()];
+            visitados = inicia_Visitados(visitados);
+            miREd.recorridoEnProfundidadComponenteConexa(devuelvePosNombre(p.getNombre()), visitados);
+
+            resul = visitados[devuelvePosNombre(p1.getNombre())];
+
+            if (!resul) {
+                System.out.println(p1.getNombre() + " y " + p.getNombre() + " no son amigos.");
+            } else {
+                System.out.println(p1.getNombre() + " y " + p.getNombre() + " son friends.");
+            }
+        } else {
+            if (!pfind && !p1find) {
+                System.out.println(p.getNombre() + " y " + p1.getNombre() + " no existen.");
+            }
+            if (pfind && !p1find) {
+                System.out.println(p1.getNombre() + " no existe.");
+            }
+            if (!pfind && p1find) {
+                System.out.println(p.getNombre() + " no existe.");
+            }
+        }
+        return resul;
     }
 
     // TODO Apartado 2.2 Cuarto método
