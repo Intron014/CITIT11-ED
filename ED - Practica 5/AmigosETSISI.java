@@ -188,7 +188,7 @@ public class AmigosETSISI {
                 System.out.println(p.getNombre() + " no existe.");
             }
         }
-        return resul;
+        return !resul;
     }
 
     // TODO Apartado 2.2 Cuarto método
