@@ -127,7 +127,6 @@ public class AmigosETSISI {
                 System.out.println("----");
                 resul++;
             }
-            i++;
         }
         return resul;
     }
